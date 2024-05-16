@@ -1,15 +1,23 @@
 
-<!-- chat.component.html -->
-
-<div>
-  <h2>Chat</h2>
-
-  <div *ngFor="let mensagem of chatService.mensagens">
-      {{ mensagem }}
+<div class="container">
+  <div class="row">
+    <div class="col text-center"> 
+      <h2 class="titulo">CHAT INTERATIVO</h2>
+      <p class="nomes">Guilherme Lima RM93401<br>Guilherme Miguel RM94599</p>
+    </div>
   </div>
-
-  <textarea [(ngModel)]="chatService.novaMensagem"></textarea>
-  <button (click)="chatService.enviarMensagem()">Enviar</button>
+  <div class="row">
+    <div class="col-8">
+      <h2>Chat</h2>
+      <div class="chat-messages">
+        <div *ngFor="let mensagem of chatService.mensagens" class="message-item">
+            {{ mensagem }}
+        </div>
+      </div>
+      <textarea [(ngModel)]="chatService.novaMensagem" class="form-control smaller-textarea"></textarea>
+      <button (click)="chatService.enviarMensagem()" class="btn btn-primary">Enviar</button>
+    </div>
+  </div>
 </div>
 
 <router-outlet />
